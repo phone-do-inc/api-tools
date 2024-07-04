@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Riverwaysoft\ApiTools\ApiPlatform\Filter;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
 class RiverAdminSearchFilter extends SearchFilter
 {

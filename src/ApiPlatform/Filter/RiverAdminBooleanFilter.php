@@ -2,7 +2,7 @@
 
 namespace Riverwaysoft\ApiTools\ApiPlatform\Filter;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
 class RiverAdminBooleanFilter extends SearchFilter
 {

@@ -38,4 +38,11 @@ class EnumNormalizer implements NormalizerInterface, DenormalizerInterface
     {
         return $data instanceof Enum;
     }
+
+    public function getSupportedTypes($format)
+    {
+        return [
+            Enum::class => true,
+        ];
+    }
 }
