@@ -2,9 +2,10 @@
 
 namespace Riverwaysoft\ApiTools\ApiPlatform\Filter;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\AbstractContextAwareFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
+use ApiPlatform\Doctrine\Orm\Filter\AbstractContextAwareFilter;
+use ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use Doctrine\ORM\QueryBuilder;
+use ApiPlatform\Metadata;
 
 abstract class AbstractFullTextSearchFilter extends AbstractContextAwareFilter
 {
@@ -16,8 +17,8 @@ abstract class AbstractFullTextSearchFilter extends AbstractContextAwareFilter
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
         string $resourceClass,
-        string $operationName = null
-    ) {
+        Operation $operation = null,
+    ) : void {
         if ($property !== 'fullText') {
             return;
         }
