@@ -1,6 +1,7 @@
 {
   "name": "riverwaysoft/api-tools",
   "description": "Api tools",
+  "version": "4.0.0",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
