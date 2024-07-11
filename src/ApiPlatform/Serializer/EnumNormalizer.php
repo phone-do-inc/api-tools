@@ -9,23 +9,17 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class EnumNormalizer implements NormalizerInterface, DenormalizerInterface
 {
-    public function denormalize($data, string $type, string $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
-        throw new \RuntimeException("Should not be denormalize");
+        throw new \RuntimeException("Should not be denormalized");
     }
 
-    public function supportsDenormalization($data, string $type, string $format = null): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return false;
     }
 
-    /**
-     * @param mixed $object
-     * @param string|null $format
-     * @param array $context
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, string $format = null, array $context = [])
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|null
     {
         if (!$object instanceof Enum) {
             throw new InvalidArgumentException('The object must implement the "Enum".');
@@ -34,12 +28,12 @@ class EnumNormalizer implements NormalizerInterface, DenormalizerInterface
         return $object->getValue();
     }
 
-    public function supportsNormalization($data, string $format = null): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return $data instanceof Enum;
     }
 
-    public function getSupportedTypes($format)
+    public function getSupportedTypes(?string $format): array
     {
         return [
             Enum::class => true,
